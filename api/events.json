@@ -1,0 +1,40 @@
+[
+  {
+    "from" : "2012-04-03T13:00:00Z",
+    "updated_at" : "2012-04-09T03:43:52Z",
+    "note" : "Eteindre vos portables Svp",
+    "id" : "4f825af8b80923c689000016",
+    "created_at" : "2012-04-09T03:43:52Z",
+    "price" : 200,
+    "user_id" : "4f7d0c79b8092314fd000002",
+    "coordinates" : [],
+    "description" : "Prsentation de WP7",
+    "name" : "Microsoft Conf",
+    "to" : "2012-03-03T15:00:00Z"
+  },
+  {
+    "location" : "Palais des congrès Montreal",
+    "id" : "4f83eab6b80923ea0400003b",
+    "created_at" : "2012-04-10T08:09:26Z",
+    "user_id" : "4f7d0c79b8092314fd000002",
+    "coordinates" : [],
+    "updated_at" : "2012-04-10T08:09:26Z",
+    "name" : "Mon event from ios"
+  },
+  {
+    "id" : "4f825ac7b80923c689000014",
+    "description" : "Prsentation du nouvel Ipad",
+    "note" : "Eteindre vos portables Svp",
+    "created_at" : "2012-04-09T03:43:03Z",
+    "from" : "2012-03-03T13:00:00Z",
+    "user_id" : "4f7d0c79b8092314fd000002",
+    "price" : 400,
+    "location" : "Palais des congrès de Montréal, 159 Rue Saint Antoine Ouest, Montreal, QC H2Z, Canada",
+    "updated_at" : "2012-04-20T05:43:22Z",
+    "coordinates" : [
+      "45.5050448,-73.5590771"
+    ],
+    "name" : "Apple Keynote",
+    "to" : "2012-03-03T15:00:00Z"
+  }
+]

@@ -5,6 +5,7 @@ define(function(require) {
      ButtonTest = require('modules/button-test/main'),
     ListExample = require('modules/list-example/main'),
   DetailExample = require('modules/detail-example/main');
+  ViewAuthenticate = require('modules/view_authenticate/main');
 
  // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -12,22 +13,26 @@ define(function(require) {
       "!/animals": "list",
       "!/animals/:id": "detail",
       "!/button": "button",
-      "*actions": "list"
+      "*actions": "default"
     },
 
-    'button': function() {
-      this.changeView(new ButtonTest.Views.Main());
-    },
-
-    'list': function() {
-      this.changeView(new ListExample.Views.Main());
-    },
-
-    'detail': function(id) {
-      this.changeView(new DetailExample.Views.Main({
-        model: new DetailExample.Model({ id: id })
-      }));
+    'default': function() {
+      this.changeView(new ViewAuthenticate.Views.Main());
     }
+
+    // 'button': function() {
+    //   this.changeView(new ButtonTest.Views.Main());
+    // },
+
+    // 'list': function() {
+    //   this.changeView(new ListExample.Views.Main());
+    // },
+
+    // 'detail': function(id) {
+    //   this.changeView(new DetailExample.Views.Main({
+    //     model: new DetailExample.Model({ id: id })
+    //   }));
+    // }
 
   });
 

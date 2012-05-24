@@ -20,9 +20,9 @@ define([
     Backbone = tryNoConflict(Backbone);
 */
   // Provide Mustache-like syntax for templating.
-  _.templateSettings = {
-    interpolate : /\{\{(.+?)\}\}/g
-  };
+  // _.templateSettings = {
+  //   interpolate : /\{\{(.+?)\}\}/g
+  // };
 
   // Extend Backbone to clear up Views when they are removed.
   // This ensures we don't get memory leaks. :)

@@ -1,23 +1,29 @@
-// A skeleton module, duplicate and customise for your own module.
-
+//main.js
 define(function(require) {
   var      libs = require('core/libs'),
               $ = libs.$,
               _ = libs._,
        Backbone = libs.backbone;
   
-  var Model = Backbone.Model.extend({ /* your model here */ });
+  var Model = Backbone.Model.extend({
+    initialize: function(){
+
+    }
+  });
 
   var Collection = Backbone.Collection.extend({ /* your collection here */ });
 
   var Views = {
+    
     Main: Backbone.View.extend({
-      template: _.template(require( /* Use the text plugin to require a template */ )),
+      tagName: "section",
+      className: "ViewAuthenticate",
+      template: _.template(require('text!./template.jst')),
 
       events: {
         // Respond to UI events, calling named functions in this object.
         // Example:
-        // "click .check"              : "toggleDone",
+        "click button#btnSignIn"              : "signIn",
         // "dblclick div.todo-text"    : "edit"
       },
 
@@ -28,6 +34,11 @@ define(function(require) {
         // Example:
         // this.model.bind('change', this.render, this);
         // this.model.bind('destroy', this.remove, this);
+
+      },
+
+      signIn: function(e){
+        alert("ok");
       },
 
       render: function() {
@@ -35,6 +46,7 @@ define(function(require) {
         // the view is rendered.
         // Example:
         // $(this.el).html(this.template(this.model.toJSON()));
+        $(this.el).html(this.template(this.model.toJSON()));
         // return this;
       }
 
@@ -50,6 +62,5 @@ define(function(require) {
     Collection: Collection,
     Views: Views
   };
-
 
 });

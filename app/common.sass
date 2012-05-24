@@ -1,0 +1,104 @@
+@import compass/css3
+
+.csButton
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff
+  box-shadow: inset 0px 1px 0px 0px #ffffff
+  background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) )
+  background: -moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% )
+  background-color: #ededed
+  -moz-border-radius: 6px
+  -webkit-border-radius: 6px
+  border-radius: 6px
+  border: 1px solid #dcdcdc
+  display: inline-block
+  color: #777777
+  font-family: arial
+  font-size: 15px
+  font-weight: bold
+  padding: 6px 24px
+  text-decoration: none
+  text-shadow: 1px 1px 0px #ffffff
+  margin-top: 12px
+  &:hover
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) )
+    background: -moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% )
+    background-color: #dfdfdf
+  &:active
+    position: relative
+    top: 1px
+
+
+input, textarea
+  padding: 9px
+  border: solid 1px #E5E5E5  
+  outline: 0
+  color: #AAA
+  font: normal 16px/100% Verdana, Tahoma, sans-serif
+  width: 100%
+  max-width: 480px
+  background: #FFFFFF url('bg_form.png') left top repeat-x
+  background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF))
+  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px)
+  box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px
+  -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px
+  -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px
+  &:invalid
+    color: pink
+    //content: "✓"
+  
+textarea
+  width: 400px
+  max-width: 400px  
+  height: 150px
+  line-height: 150%
+  
+input:hover, textarea:hover, input:focus, textarea:focus 
+  border-color: #C9C9C9
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px
+  
+.form label 
+  margin-left: 10px
+  color: #999999
+
+h1,h2,h3,h4,h5,h6
+  font-family: 'Droid Sans', sans-serif
+  font-weight: normal
+  position: relative
+  outline: 0
+h1
+  font-size: 42px
+  line-height: 0.9
+  color: #EEE
+  margin-bottom: 13px
+  padding-bottom: 15px
+  -webkit-text-stroke: 0
+  font-size: 3em
+h2
+  font-size: 42px
+  line-height: 0.9
+  color: #EEE
+  margin-bottom: 12px
+  padding-bottom: 12px
+  -webkit-text-stroke: 0
+  font-size: 3em
+
+h3
+  font-size: 20px
+  font-family: Arial, Helvetica, sans-serif
+  font-weight: normal
+  padding-bottom: 10px
+  padding-top: 5px
+h4
+  font-size: 14px
+  line-height: 0.9
+  text-align: left
+  margin-bottom: 8px
+  padding-top: 3px
+
+.text_inset
+  -webkit-background-clip: text
+  background-color: rgba(82,96,117,0.5)
+  +text-shadow(rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px)
+  font: bold 'Droid Sans', sans-serif
+  color: transparent
