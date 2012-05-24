@@ -7,17 +7,25 @@ define(function(require) {
   DetailExample = require('modules/detail-example/main');
   ViewAuthenticate = require('modules/view_authenticate/main');
 
+
  // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
       "!/animals": "list",
       "!/animals/:id": "detail",
       "!/button": "button",
-      "*actions": "default"
+      "!signIn": "signIn",
+      "*actions": "default",
+      
     },
 
     'default': function() {
+    },
+    'signIn': function() {
       this.changeView(new ViewAuthenticate.Views.Main());
+    },
+    'loggedIn': function(){
+      alert("You've been logged in");
     }
 
     // 'button': function() {
@@ -48,7 +56,15 @@ define(function(require) {
     });
 
     // Trigger the initial route
-    Backbone.history.start();
+    Backbone.history.start({pushState: true});
+    if(window.loggedIn == true){
+      console.log("User: logged in");
+    } else {
+      console.log("User: not logged in");
+      console.log("Display to : FormAuthenticate");
+      router.navigate("!signIn", false);
+
+    } 
   });
 
   // All navigation that is relative should be passed through the navigate
