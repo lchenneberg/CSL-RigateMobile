@@ -6,29 +6,36 @@ define(function(require) {
        Backbone = libs.backbone;
   
   var Model = Backbone.Model.extend({
+    defaults: {
+      token: null,
+      email: null,
+      password: null,
+      loggedIn: false
+    },
     initialize: function(){
-      this.token = null;
-      this.email = null;
-      this.password = null;
+      
     },
     authenticate: function(){
       console.log("Getting new token...");
       $.ajax({
-        type:"post",
-        url: "https://localhost:3000/api/tokens",
+        type: "post",
+        async: false,
+        url: "https://192.168.2.4:3000/api/tokens",
         data: {email: this.email, password: this.password},
         dataType: 'json',
         timeout: 300,
         context: $('body'),
         success: function(data){
-          console.log("success");
+          window.loggedIn = true;
+          console.log("User is logged in with auth_token: " + data.auth_token);
+          window.cslAuthToken = data.auth_token;
         },
         error: function(xhr, type){
-          console.log(xhr);
+          window.loggedIn = false;
+          console.log(type);
         }
       });
     }
-
   });
 
   var Collection = Backbone.Collection.extend({ /* your collection here */ });
@@ -43,7 +50,7 @@ define(function(require) {
       events: {
         // Respond to UI events, calling named functions in this object.
         // Example:
-        "click button#btnSignIn"              : "signIn",
+        "mouseup #btnSignIn"              : "signIn",
         // "dblclick div.todo-text"    : "edit"
       },
 
@@ -54,31 +61,38 @@ define(function(require) {
         // Example:
         // this.model.bind('change', this.render, this);
         // this.model.bind('destroy', this.remove, this);
-        this.model = new Model
+        this.model = new Model()
 
       },
 
       signIn: function(e){
+        e.preventDefault();
         var email = $("#txtEmail");
         var password = $("#txtPassword");
-        
+        var self = this;
         //dummyValues
         email.val("chenlu972@gmail.com");
         password.val("Passwd0");
 
         if(document.getElementById("signInForm").checkValidity()){
           console.log("SignInForm parameters : "+ email.val() + ", " + password.val());
-          this.model.set({email: email, password: password});
+          //this.model.set({email: "chenlu972@gmail.com", password: password.val()});
+          this.model.email = email.val();
+          this.model.password = password.val();
           this.model.authenticate();
+          setTimeout(function(){
+            if(window.loggedIn == true){
+              $('.'+self.className).animate({opacity:0}, {duration: 2000, complete: function(){$('.'+self.className).remove();}});
+              //Backbone.history.navigate('/', false);
+              console.log("SignInForm disappeared");
+            } 
+          }, 400);
         } else {
           console.log("SignInForm parameters are not valid");
           password.val("");
         }
-        if(1==2){
-          window.loggedIn = true;
-          $('.'+this.className).animate({opacity:0}, {duration: 2000, complete: function(){$('.'+this.className).remove();}});
-          Backbone.history.navigate('/', false);
-        } 
+        
+        
       },
 
       render: function() {

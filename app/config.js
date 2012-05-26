@@ -9,6 +9,7 @@ require.config({
     energize:   '../assets/js/libs/energize',
     text:       '../assets/js/plugins/text-1.0.7',
     order:      '../assets/js/plugins/order-1.0.5',
+    phonegap:   '../assets/js/libs/cordova-1.7.0',
 
     // helpers
     core:       'core/'

@@ -55,16 +55,21 @@ define(function(require) {
       container: $("#main")
     });
 
+    // document.addEventListener('touchstart', function(event) {
+    //     event.preventDefault();
+    // }, false);
+    window.loggedIn = false;
     // Trigger the initial route
     Backbone.history.start({pushState: true});
-    if(window.loggedIn == true){
+    if(window.loggedIn){
       console.log("User: logged in");
     } else {
       console.log("User: not logged in");
       console.log("Display to : FormAuthenticate");
-      router.navigate("!signIn", false);
+      Backbone.history.navigate("!signIn",false);
+    }
 
-    } 
+
   });
 
   // All navigation that is relative should be passed through the navigate
