@@ -6,6 +6,9 @@ define(function(require) {
     ListExample = require('modules/list-example/main'),
   DetailExample = require('modules/detail-example/main');
   ViewAuthenticate = require('modules/view_authenticate/main');
+  ViewLobby = require('modules/view_lobby/main');
+  AccountEvents = require('modules/account/events/main');
+
 
 
  // Defining the application router, you can attach sub routers here.
@@ -14,19 +17,30 @@ define(function(require) {
       "!/animals": "list",
       "!/animals/:id": "detail",
       "!/button": "button",
-      "!signIn": "signIn",
-      "*actions": "default",
-      
+      "!/signIn": "signIn",
+      "!/logout": "logout",
+      "!/account/events": "accountEvents",
+      "*actions": "default"
     },
 
     'default': function() {
+      this.changeView(new ViewLobby.Views.Main());
     },
     'signIn': function() {
       this.changeView(new ViewAuthenticate.Views.Main());
     },
-    'loggedIn': function(){
-      alert("You've been logged in");
+    'logout': function(){
+      window.localStorage.removeItem("cslAuthToken", null);
+      window.localStorage.removeItem("cslUserID", null);
+      window.loggedIn = false;
+      console.log("User: logged out");
+      Backbone.history.navigate("!/signIn",true);
+    },
+    'accountEvents': function(){
+      this.changeView(new AccountEvents.Views.Main())
     }
+
+
 
     // 'button': function() {
     //   this.changeView(new ButtonTest.Views.Main());
@@ -55,18 +69,22 @@ define(function(require) {
       container: $("#main")
     });
 
+    window.loggedIn = (localStorage.getItem("cslAuthToken") != null);
     // document.addEventListener('touchstart', function(event) {
     //     event.preventDefault();
     // }, false);
-    window.loggedIn = false;
+
     // Trigger the initial route
-    Backbone.history.start({pushState: true});
+    Backbone.history.start({pushState: false});
     if(window.loggedIn){
       console.log("User: logged in");
+      console.log(window.localStorage.getItem("cslAuthToken"));
+      //Backbone.history.navigate("!/",true);
+
     } else {
       console.log("User: not logged in");
       console.log("Display to : FormAuthenticate");
-      Backbone.history.navigate("!signIn",false);
+      Backbone.history.navigate("!/signIn",true);
     }
 
 

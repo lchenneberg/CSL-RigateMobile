@@ -3,6 +3,7 @@ define([
   'order!zepto',
   'order!underscore',
   'order!backbone'
+  //'order!cordova'
 ], function() {
 
   // Tries to remove the library from global scope once it has been required.

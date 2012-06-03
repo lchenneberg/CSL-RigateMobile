@@ -12,7 +12,7 @@ define(function(require) {
 
   var Views = {
     Main: Backbone.View.extend({
-      template: _.template(require( /* Use the text plugin to require a template */ )),
+      template: _.template(require("text!./template.jst")),
 
       events: {
         // Respond to UI events, calling named functions in this object.
@@ -36,6 +36,8 @@ define(function(require) {
         // Example:
         // $(this.el).html(this.template(this.model.toJSON()));
         // return this;
+        $(this.el).html(this.template(this.model.toJSON()));
+        return this;
       }
 
       // The rest of the view should be used to carry

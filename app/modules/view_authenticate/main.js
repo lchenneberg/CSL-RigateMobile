@@ -16,6 +16,7 @@ define(function(require) {
       
     },
     authenticate: function(){
+      $("#btnSignIn").attr("disabled","disabled");
       console.log("Getting new token...");
       $.ajax({
         type: "post",
@@ -28,10 +29,13 @@ define(function(require) {
         success: function(data){
           window.loggedIn = true;
           console.log("User is logged in with auth_token: " + data.auth_token);
-          window.cslAuthToken = data.auth_token;
+          window.localStorage.setItem("cslAuthToken", data.auth_token);
+          window.localStorage.setItem("cslUserID", data.user_id);
         },
         error: function(xhr, type){
+          $("#btnSignIn").removeAttr("disabled");
           window.loggedIn = false;
+          console.log("An error Has been Raised")
           console.log(type);
         }
       });
@@ -44,13 +48,13 @@ define(function(require) {
     
     Main: Backbone.View.extend({
       tagName: "section",
-      className: "ViewAuthenticate",
+      className: "wysPage",
       template: _.template(require('text!./template.jst')),
 
       events: {
         // Respond to UI events, calling named functions in this object.
         // Example:
-        "mouseup #btnSignIn"              : "signIn",
+        "mouseup #btnSignIn"              : "signIn"
         // "dblclick div.todo-text"    : "edit"
       },
 
@@ -61,8 +65,7 @@ define(function(require) {
         // Example:
         // this.model.bind('change', this.render, this);
         // this.model.bind('destroy', this.remove, this);
-        this.model = new Model()
-
+        this.model = new Model();
       },
 
       signIn: function(e){
@@ -81,9 +84,9 @@ define(function(require) {
           this.model.password = password.val();
           this.model.authenticate();
           setTimeout(function(){
-            if(window.loggedIn == true){
+            if(window.loggedIn === true){
               $('.'+self.className).animate({opacity:0}, {duration: 2000, complete: function(){$('.'+self.className).remove();}});
-              //Backbone.history.navigate('/', false);
+              Backbone.history.navigate("/",true);
               console.log("SignInForm disappeared");
             } 
           }, 400);
