@@ -9,17 +9,13 @@ define(function(require) {
   ViewLobby = require('modules/view_lobby/main');
   AccountEvents = require('modules/account/events/main');
 
-
-
  // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
-      "!/animals": "list",
-      "!/animals/:id": "detail",
-      "!/button": "button",
       "!/signIn": "signIn",
       "!/logout": "logout",
       "!/account/events": "accountEvents",
+      "!/account/events/:id": "accountEventsShow",
       "*actions": "default"
     },
 
@@ -37,7 +33,12 @@ define(function(require) {
       Backbone.history.navigate("!/signIn",true);
     },
     'accountEvents': function(){
-      this.changeView(new AccountEvents.Views.Main())
+      this.changeView(new AccountEvents.Views.Main());
+    },
+    'accountEventsShow': function(id){
+      this.changeView(new AccountEvents.Views.Show({
+        model: new AccountEvents.Model({id:id})
+      }));
     }
 
 
@@ -64,30 +65,39 @@ define(function(require) {
   $(function() {
     // Define your master router on the application namespace and trigger all
     // navigation from this instance.
-    var router = new Router({
-      // Define your container div where all content will be displayed.
-      container: $("#main")
-    });
-
-    window.loggedIn = (localStorage.getItem("cslAuthToken") != null);
+    window.remote_address = "https://192.168.2.4:3000/api"
+    window.loggedIn = (localStorage.getItem("cslAuthToken") != null) ? true : false;
+    window.fixLoaded = false;
+    if(window.loggedIn == true){
+      BackboneRailsAuthTokenAdapter.fixSync(Backbone, "auth_token", localStorage.getItem("cslAuthToken"));
+      window.fixLoaded = true
+    }
     // document.addEventListener('touchstart', function(event) {
     //     event.preventDefault();
     // }, false);
 
+    var router = new Router({
+      // Define your container div where all content will be displayed.
+      container: $("#main")
+    });
     // Trigger the initial route
     Backbone.history.start({pushState: false});
+    $("#SmartSenseMainButton").click(function(){
+      Backbone.history.navigate("",true);
+    });
     if(window.loggedIn){
       console.log("User: logged in");
       console.log(window.localStorage.getItem("cslAuthToken"));
+      //BackboneRailsAuthTokenAdapter.fixSync(Backbone, "auth_token", localStorage.getItem("cslAuthToken"));
+      // $.ajaxSetup({
+      //   'beforeSend': function(xhr) {xhr.setRequestHeader("X-Auth-Token", window.localStorage.getItem("cslAuthToken"))}
+      // })
       //Backbone.history.navigate("!/",true);
-
     } else {
       console.log("User: not logged in");
       console.log("Display to : FormAuthenticate");
       Backbone.history.navigate("!/signIn",true);
     }
-
-
   });
 
   // All navigation that is relative should be passed through the navigate

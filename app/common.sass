@@ -1,5 +1,7 @@
 @import compass/css3
 @import compass/css3/border-radius
+@import url("http://fonts.googleapis.com/css?family=Reenie+Beanie")
+
 
 input, textarea
   padding: 9px
@@ -166,14 +168,14 @@ h4
   //background-color: #FFF
   margin: 0
   padding: 0
+  overflow-y: hidden
+  overflow: auto
+  -webkit-overflow-scrolling: touch
   .content
     z-index: 110
     padding-top: 60px
-    overflow-y: hidden
-    overflow: auto
-    -webkit-overflow-scrolling: touch
-    width: 100%
-    height: 100%
+    margin-bottom: 80px
+    
 
 .detailsList
   margin: 0
@@ -204,19 +206,26 @@ h4
   width: 100%
   margin: 0
   padding: 0
-  font-style: italic
-  font-family: Georgia, Times, serif
+  font-family: "Helvetica Neue","HelveticaNeue",Helvetica,Arial,"Lucida Grande",sans-serif
+
   // font-size: 24px
   // color: #bfe1f1
   list-style-type: none
   position: relative
+  
   li
-    margin: 0
-    padding: 14px 10px 2px 10px
-    position: relative
     //border-bottom: 1px solid #CCC
-    &:hover
-      background-color: #EEE
+    a
+      margin: 0
+      padding: 14px 10px 2px 10px
+      display: block
+      text-decoration: none
+      //background-color: #EEE
+      padding: 10px
+      margin: 0
+      position: relative
+      &:hover
+        background-color: #EEE
     ul
       list-style-type: none
       margin: 0
@@ -238,11 +247,16 @@ h4
       font-family: Arial
       font-size: 13px
       color: #666
+      color: #181818
       em
-        color: #444
         font-weight: bold
         display: block
         line-height: 14px
+        padding-bottom: 4px
+        color: #181818
+        font-style: normal
+        font-weight: bold
+        color: #CC0F16
 
 
   // float: left
@@ -295,17 +309,276 @@ h4
     ul li a.active.half
       background-position: 0 -52px !important
 
-#btnSmart
+#SmartSenseMainButton
   position: fixed
   z-index: 1000
-  bottom: 20px
+  top: 15px
   right: 20px
-  background: #000
-  height: 40px
-  width: 40px
-  @include border-radius(20px)
-  @include box-shadow(#666 0px 0px 10px)
+  background: #CC0F16
+  height: 30px
+  width: 30px
   border: 0
+  @include border-radius(4px)
+  //@include border-radius(20px)
+  @include box-shadow(#666 0px 0px 10px)
+  //border: 10px solid rgba(255, 255, 255, 0.8)
+
+/* =========== */
+/* = Flexbox = */
+/* =========== */
+.flexbox
+  width: 100%
+  display: -webkit-box
+  display: -moz-box           
+  -webkit-box-orient: horizontal     
+  -webkit-box-pack: justify
+  -webkit-box-align: stretch
+  -moz-box-orient: horizontal     
+  -moz-box-pack: justify
+  -moz-box-align: stretch
+  // > div
+  //   margin: 10px
+  //   -webkit-box-flex: 1
+  //   -moz-box-flex: 1                        
+  //   //For firefox we MUST set a width in PX here,
+  //   //or just set width to 0 and let flex-box handle the size
+  //   //width: 100px;
+  //   /* Default is the last ordinal group */
+  //   -webkit-box-ordinal-group: 1
+  //   -moz-box-ordinal-group: 1     ë         
+// /* Flexible box */
+  .flexible 
+    .has-flex
+      display: inline
+    > div
+      &:nth-child(1)
+        -webkit-box-flex: 1
+        -moz-box-flex: 1
+      &:nth-child(1):after
+        content: " (1 unit wide)"
+      &:nth-child(2)
+        -webkit-box-flex: 2
+        -moz-box-flex: 2          
+      &:nth-child(2):after
+        content: " (2 units wide)"
+      &:nth-child(3)
+        -webkit-box-flex: 3
+        -moz-box-flex: 3            
+      &:nth-child(3):after
+        content: " (3 units wide)"                        
+    /* Ordinal box */
+    .flexbox.ordinal 
+      div
+        :nth-child(1)
+          -webkit-box-ordinal-group: 2
+          -moz-box-ordinal-group: 2            
+        :nth-child(2)
+          -webkit-box-ordinal-group: 1
+          -moz-box-ordinal-group: 1
+
+#SmartSenseBottomContainer
+  display: -webkit-box
+  -webkit-box-orient: horizontal     
+  -webkit-box-pack: justify
+  -webkit-box-align: stretch
+  width: 100%
+  > div
+    text-align: center
+    display: block
+    -webkit-box-flex: 1
+    -moz-box-flex: 1
+  position: fixed
+  z-index: 999
+  bottom: 0px
+  right: 0px
+  list-style: none
+  margin: 0
+  padding: 0
+  .smartSenseActionButton
+    text-align: center
+    margin: 0
+    padding: 0
+    z-index: 1000
+    background: #000
+    height: 20px
+    width: 20px
+    @include border-radius(20px)
+    @include box-shadow(#666 0px 0px 6px)
+  label
+    margin: 0
+    text-align:center
+    padding: 2px 6px
+    width: 100%
+    font-size: 8px
+    background-color: #FFF
+    color: 000
+    opacity: .8
+    @include border-radius(20px)
+
+div.indicator
+  display: -webkit-box
+  -webkit-box-orient: horizontal     
+  -webkit-box-pack: justify
+  -webkit-box-align: stretch
+  width: 100%
+  > span 
+    display: block
+    background: red
+    width: 5px
+    height: 5px
+    &:nth-child(-n+3)
+      background-color: green
+
+#EventShowInfos
+  display: -webkit-box
+  -webkit-box-orient: horizontal
+  -webkit-box-pack: justify
+  -webkit-box-align: stretch
+  width: 100%
+  > div
+    display: block
+  #EventShowInfosAvatar
+    padding: 10px
+    width: 100px
+    img
+      width: 100px
+      height: 100px
+      border: 4px solid #FFF
+      @include border-radius(2px)
+      -webkit-transform: rotate(-1deg) 
+      -o-transform: rotate(-1deg)  
+      -moz-transform: rotate(-1deg)
+      @include box-shadow
+  #EventShowInfosSqare
+    -webkit-box-flex: 1
+    -moz-box-flex: 1
+    padding: 10px
+    table
+      @include border-radius(4px)
+      width: 100%
+      tr
+        height: 50px
+        &:nth-child(1)
+        td
+          text-align: center
+          vertical-align: middle
+          em
+            font-weight: bold
+            font-size: 16px
+            margin: 0
+            padding: 0
+          p
+            margin: 0
+            padding: 0
+#EventShowDetail
+  padding: 10px
+
+.insetShadow
+  display: block
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    -moz-box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.8)
+    -webkit-box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.8)
+    box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.8)
+
+.stickyNote
+  font-family: 'Reenie Beanie', serif
+  width: 200px
+
+  padding: 20px
+  margin: 20px auto
+  position: relative
+  background-color: #fe6
+  background: -webkit-linear-gradient(#fe6, #f5da41, #f6ef97)
+  background: -moz-linear-gradient(#fe6, #f5da41, #f6ef97)
+  @include box-shadow(#666 0px 0px 10px)
+  -webkit-transform: rotate(-1deg) 
+  -o-transform: rotate(-1deg)  
+  -moz-transform: rotate(-1deg)
+  // &:before
+  //   content: ''
+  //   display: block
+  //   width: 90%
+  //   height: 20%
+  //   position: absolute
+  //   left: 10px
+  //   bottom: 3px
+  //   background-color: rgba(0, 0, 0, .9)
+  //   -o-transform: rotate(-3deg)
+  //   -webkit-transform: rotate(-3deg)
+  //   -moz-transform: rotate(-3deg)
+  //   -webkit-box-shadow: 0 0 10px #000
+  //   -moz-box-shadow: 0 0 10px #000
+  //   box-shadow: 0 0 10px #000
+  //   opacity: 1
+  //   z-index: -1
+  // &:after 
+  //   content: ''
+  //   display: block
+  //   width: 90%
+  //   height: 20%
+  //   position: absolute
+  //   right: 10px
+  //   bottom: 3px
+  //   background-color: rgba(0, 0, 0, .9)
+  //   -o-transform: rotate(3deg)
+  //   -webkit-transform: rotate(3deg)
+  //   -moz-transform: rotate(3deg)
+  //   box-shadow: 0 0 10px #000
+  //   -webkit-box-shadow: 0 0 10px #000
+  //   -moz-box-shadow: 0 0 10px #000
+  //   opacity: 1
+  //   z-index: -1
+  h1
+    font-size: 18px
+    line-height: 48px
+    letter-spacing: -5px
+  p
+    font-size: 14px
+    line-height: 14px
+    min-height: 40px
+  a
+    color: #333  
+
+.overlay
+  display: -webkit-box
+  -webkit-box-orient: horizontal
+  -webkit-box-pack: justify
+  -webkit-box-align: stretch
+  position:fixed
+  top: 0
+  left: 0
+  margin: 0
+  padding: 0
+  z-index: 290
+  opacity: .8
+  background-color: #000
+  width: 100%
+  height: 100%
+
+.popOverView
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-box-pack: justify
+  -webkit-box-align: stretch
+  position: fixed
+  z-index: 300
+  width: 90%
+  height: 80%
+  background-color: #FFF
+  top: 5%
+  left: 5%
+  @include box-shadow(#000 0px 0px 20px)
+  overflow-y: hidden
+  overflow: auto
+  -webkit-overflow-scrolling: touch
+  // > div
+  //   -webkit-box-flex: 1
+  //   -moz-box-flex: 1
 
 
 

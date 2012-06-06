@@ -1,4 +1,5 @@
-/* line 4, ../../app/common.sass */
+@import url("http://fonts.googleapis.com/css?family=Reenie+Beanie");
+/* line 6, ../../app/common.sass */
 input, textarea {
   padding: 9px;
   border: solid 1px #e5e5e5;
@@ -14,12 +15,12 @@ input, textarea {
   -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
 }
-/* line 18, ../../app/common.sass */
+/* line 20, ../../app/common.sass */
 input:invalid, textarea:invalid {
   color: pink;
 }
 
-/* line 22, ../../app/common.sass */
+/* line 24, ../../app/common.sass */
 textarea {
   width: 400px;
   max-width: 400px;
@@ -27,24 +28,24 @@ textarea {
   line-height: 150%;
 }
 
-/* line 28, ../../app/common.sass */
+/* line 30, ../../app/common.sass */
 input:hover, textarea:hover, input:focus, textarea:focus {
   border-color: #c9c9c9;
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
 }
 
-/* line 31, ../../app/common.sass */
+/* line 33, ../../app/common.sass */
 input[type=button] {
   width: auto;
 }
 
-/* line 35, ../../app/common.sass */
+/* line 37, ../../app/common.sass */
 .form label {
   margin-left: 10px;
   color: #999999;
 }
 
-/* line 39, ../../app/common.sass */
+/* line 41, ../../app/common.sass */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Droid Sans", sans-serif;
   font-weight: normal;
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
   outline: 0;
 }
 
-/* line 44, ../../app/common.sass */
+/* line 46, ../../app/common.sass */
 h1 {
   font-size: 42px;
   line-height: 0.9;
@@ -63,7 +64,7 @@ h1 {
   font-size: 3em;
 }
 
-/* line 52, ../../app/common.sass */
+/* line 54, ../../app/common.sass */
 h2 {
   font-size: 42px;
   line-height: 0.9;
@@ -74,7 +75,7 @@ h2 {
   font-size: 3em;
 }
 
-/* line 61, ../../app/common.sass */
+/* line 63, ../../app/common.sass */
 h3 {
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -83,7 +84,7 @@ h3 {
   padding-top: 5px;
 }
 
-/* line 67, ../../app/common.sass */
+/* line 69, ../../app/common.sass */
 h4 {
   font-size: 14px;
   line-height: 0.9;
@@ -92,7 +93,7 @@ h4 {
   padding-top: 3px;
 }
 
-/* line 74, ../../app/common.sass */
+/* line 76, ../../app/common.sass */
 .textInset {
   -webkit-background-clip: text;
   background-color: rgba(82, 96, 117, 0.5);
@@ -101,7 +102,7 @@ h4 {
   color: transparent;
 }
 
-/* line 81, ../../app/common.sass */
+/* line 83, ../../app/common.sass */
 .csButton {
   -moz-box-shadow: inset 0px 1px 0px 0px white;
   -webkit-box-shadow: inset 0px 1px 0px 0px white;
@@ -144,30 +145,30 @@ h4 {
   text-shadow: 1px 1px 0px white;
   margin-top: 12px;
 }
-/* line 102, ../../app/common.sass */
+/* line 104, ../../app/common.sass */
 .csButton:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
   background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
   background-color: #dfdfdf;
 }
-/* line 106, ../../app/common.sass */
+/* line 108, ../../app/common.sass */
 .csButton:active {
   position: relative;
   top: 1px;
 }
-/* line 131, ../../app/common.sass */
+/* line 133, ../../app/common.sass */
 .csButton:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed));
   background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
   background-color: #dfdfdf;
 }
-/* line 135, ../../app/common.sass */
+/* line 137, ../../app/common.sass */
 .csButton:active {
   position: relative;
   top: 1px;
 }
 
-/* line 140, ../../app/common.sass */
+/* line 142, ../../app/common.sass */
 #container {
   z-index: 100;
   position: fixed;
@@ -178,7 +179,7 @@ h4 {
   padding: 0;
 }
 
-/* line 149, ../../app/common.sass */
+/* line 151, ../../app/common.sass */
 .wysPageHeader {
   z-index: 120;
   position: fixed;
@@ -191,13 +192,13 @@ h4 {
   -moz-box-shadow: #666666 2px 2px 10px;
   box-shadow: #666666 2px 2px 10px;
 }
-/* line 153, ../../app/common.sass */
+/* line 155, ../../app/common.sass */
 .wysPageHeader h2 {
   margin: 0px 10px;
   color: white;
 }
 
-/* line 161, ../../app/common.sass */
+/* line 163, ../../app/common.sass */
 .wysPage {
   z-index: 110;
   position: absolute;
@@ -205,19 +206,18 @@ h4 {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-/* line 169, ../../app/common.sass */
-.wysPage .content {
-  z-index: 110;
-  padding-top: 60px;
   overflow-y: hidden;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  width: 100%;
-  height: 100%;
+}
+/* line 174, ../../app/common.sass */
+.wysPage .content {
+  z-index: 110;
+  padding-top: 60px;
+  margin-bottom: 80px;
 }
 
-/* line 178, ../../app/common.sass */
+/* line 180, ../../app/common.sass */
 .detailsList {
   margin: 0;
   padding: 0;
@@ -226,7 +226,7 @@ h4 {
   color: #868686;
   margin: 10px;
 }
-/* line 185, ../../app/common.sass */
+/* line 187, ../../app/common.sass */
 .detailsList li {
   display: block;
   width: auto;
@@ -238,47 +238,50 @@ h4 {
   border-top: none;
   text-align: right;
 }
-/* line 195, ../../app/common.sass */
+/* line 197, ../../app/common.sass */
 .detailsList li a {
   display: block;
   padding: 4px 8px;
   color: #868686;
 }
-/* line 199, ../../app/common.sass */
+/* line 201, ../../app/common.sass */
 .detailsList li .current {
   border-top: none;
   border-bottom: none;
   background: #d45500;
 }
 
-/* line 203, ../../app/common.sass */
+/* line 205, ../../app/common.sass */
 .list-style-a {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-style: italic;
-  font-family: Georgia, Times, serif;
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
   list-style-type: none;
   position: relative;
 }
-/* line 213, ../../app/common.sass */
-.list-style-a li {
+/* line 218, ../../app/common.sass */
+.list-style-a li a {
   margin: 0;
   padding: 14px 10px 2px 10px;
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0;
   position: relative;
 }
-/* line 218, ../../app/common.sass */
-.list-style-a li:hover {
+/* line 227, ../../app/common.sass */
+.list-style-a li a:hover {
   background-color: #eeeeee;
 }
-/* line 220, ../../app/common.sass */
+/* line 229, ../../app/common.sass */
 .list-style-a li ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: right;
 }
-/* line 225, ../../app/common.sass */
+/* line 234, ../../app/common.sass */
 .list-style-a li ul li {
   display: inline;
   padding: 0;
@@ -289,7 +292,7 @@ h4 {
   font-weight: bold;
   color: #888888;
 }
-/* line 234, ../../app/common.sass */
+/* line 243, ../../app/common.sass */
 .list-style-a li p {
   margin: 0;
   padding: 0;
@@ -297,15 +300,20 @@ h4 {
   font-family: Arial;
   font-size: 13px;
   color: #666666;
+  color: #181818;
 }
-/* line 241, ../../app/common.sass */
+/* line 251, ../../app/common.sass */
 .list-style-a li p em {
-  color: #444444;
   font-weight: bold;
   display: block;
   line-height: 14px;
+  padding-bottom: 4px;
+  color: #181818;
+  font-style: normal;
+  font-weight: bold;
+  color: #cc0f16;
 }
-/* line 260, ../../app/common.sass */
+/* line 274, ../../app/common.sass */
 .list-style-a ul.rating {
   padding: 0;
   margin: 0;
@@ -313,14 +321,14 @@ h4 {
   list-style: none;
   height: 13px;
 }
-/* line 266, ../../app/common.sass */
+/* line 280, ../../app/common.sass */
 .list-style-a ul.rating li {
   display: inline;
   list-style: none;
   padding: 0;
   margin: 0;
 }
-/* line 272, ../../app/common.sass */
+/* line 286, ../../app/common.sass */
 .list-style-a ul.rating li a {
   background: url(/assets/img/stars.png) no-repeat 0 0;
   height: 13px;
@@ -331,52 +339,308 @@ h4 {
   outline: none;
   background-position: 0 -13px !important;
 }
-/* line 280, ../../app/common.sass */
+/* line 294, ../../app/common.sass */
 .list-style-a ul.rating li a.active {
   background-position: 0 -13px;
 }
-/* line 282, ../../app/common.sass */
+/* line 296, ../../app/common.sass */
 .list-style-a ul.rating li a.active.half {
   background-position: 0 -26px;
 }
-/* line 284, ../../app/common.sass */
+/* line 298, ../../app/common.sass */
 .list-style-a ul.rating li a.hover {
   background-position: 0 -13px !important;
 }
-/* line 291, ../../app/common.sass */
+/* line 305, ../../app/common.sass */
 .list-style-a .has_cookie a {
   cursor: default;
 }
-/* line 293, ../../app/common.sass */
+/* line 307, ../../app/common.sass */
 .list-style-a .has_cookie a.active {
   background-position: 0 -39px !important;
 }
-/* line 295, ../../app/common.sass */
+/* line 309, ../../app/common.sass */
 .list-style-a .has_cookie a ul li a.active.half {
   background-position: 0 -52px !important;
 }
 
-/* line 298, ../../app/common.sass */
-#btnSmart {
+/* line 312, ../../app/common.sass */
+#SmartSenseMainButton {
   position: fixed;
   z-index: 1000;
-  bottom: 20px;
+  top: 15px;
   right: 20px;
+  background: #cc0f16;
+  height: 30px;
+  width: 30px;
+  border: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: #666666 0px 0px 10px;
+  -moz-box-shadow: #666666 0px 0px 10px;
+  box-shadow: #666666 0px 0px 10px;
+}
+
+/* =========== */
+/* = Flexbox = */
+/* =========== */
+/* line 329, ../../app/common.sass */
+.flexbox {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: justify;
+  -moz-box-align: stretch;
+}
+
+/* line 379, ../../app/common.sass */
+#SmartSenseBottomContainer {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  bottom: 0px;
+  right: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 385, ../../app/common.sass */
+#SmartSenseBottomContainer > div {
+  text-align: center;
+  display: block;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+}
+/* line 397, ../../app/common.sass */
+#SmartSenseBottomContainer .smartSenseActionButton {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
   background: black;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   border-radius: 20px;
+  -webkit-box-shadow: #666666 0px 0px 6px;
+  -moz-box-shadow: #666666 0px 0px 6px;
+  box-shadow: #666666 0px 0px 6px;
+}
+/* line 407, ../../app/common.sass */
+#SmartSenseBottomContainer label {
+  margin: 0;
+  padding: 2px 6px;
+  width: 100%;
+  font-size: 8px;
+  background-color: white;
+  color: 0;
+  opacity: 0.8;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+}
+
+/* line 418, ../../app/common.sass */
+div.indicator {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  width: 100%;
+}
+/* line 424, ../../app/common.sass */
+div.indicator > span {
+  display: block;
+  background: red;
+  width: 5px;
+  height: 5px;
+}
+/* line 429, ../../app/common.sass */
+div.indicator > span:nth-child(-n+3) {
+  background-color: green;
+}
+
+/* line 432, ../../app/common.sass */
+#EventShowInfos {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  width: 100%;
+}
+/* line 438, ../../app/common.sass */
+#EventShowInfos > div {
+  display: block;
+}
+/* line 440, ../../app/common.sass */
+#EventShowInfos #EventShowInfosAvatar {
+  padding: 10px;
+  width: 100px;
+}
+/* line 443, ../../app/common.sass */
+#EventShowInfos #EventShowInfosAvatar img {
+  width: 100px;
+  height: 100px;
+  border: 4px solid white;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+/* line 452, ../../app/common.sass */
+#EventShowInfos #EventShowInfosSqare {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  padding: 10px;
+}
+/* line 456, ../../app/common.sass */
+#EventShowInfos #EventShowInfosSqare table {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  width: 100%;
+}
+/* line 459, ../../app/common.sass */
+#EventShowInfos #EventShowInfosSqare table tr {
+  height: 50px;
+}
+/* line 462, ../../app/common.sass */
+#EventShowInfos #EventShowInfosSqare table tr td {
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 465, ../../app/common.sass */
+#EventShowInfos #EventShowInfosSqare table tr td em {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+/* line 470, ../../app/common.sass */
+#EventShowInfos #EventShowInfosSqare table tr td p {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 473, ../../app/common.sass */
+#EventShowDetail {
+  padding: 10px;
+}
+
+/* line 476, ../../app/common.sass */
+.insetShadow {
+  display: block;
+  position: relative;
+}
+/* line 479, ../../app/common.sass */
+.insetShadow::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -moz-box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* line 488, ../../app/common.sass */
+.stickyNote {
+  font-family: "Reenie Beanie", serif;
+  width: 200px;
+  padding: 20px;
+  margin: 20px auto;
+  position: relative;
+  background-color: #ffee66;
+  background: -webkit-linear-gradient(#ffee66, #f5da41, #f6ef97);
+  background: -moz-linear-gradient(#ffee66, #f5da41, #f6ef97);
   -webkit-box-shadow: #666666 0px 0px 10px;
   -moz-box-shadow: #666666 0px 0px 10px;
   box-shadow: #666666 0px 0px 10px;
-  border: 0;
+  -webkit-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+}
+/* line 536, ../../app/common.sass */
+.stickyNote h1 {
+  font-size: 18px;
+  line-height: 48px;
+  letter-spacing: -5px;
+}
+/* line 540, ../../app/common.sass */
+.stickyNote p {
+  font-size: 14px;
+  line-height: 14px;
+  min-height: 40px;
+}
+/* line 544, ../../app/common.sass */
+.stickyNote a {
+  color: #333333;
 }
 
-/* line 312, ../../app/common.sass */
+/* line 547, ../../app/common.sass */
+.overlay {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 290;
+  opacity: 0.8;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 563, ../../app/common.sass */
+.popOverView {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  position: fixed;
+  z-index: 300;
+  width: 90%;
+  height: 80%;
+  background-color: white;
+  top: 5%;
+  left: 5%;
+  -webkit-box-shadow: black 0px 0px 20px;
+  -moz-box-shadow: black 0px 0px 20px;
+  box-shadow: black 0px 0px 20px;
+  overflow-y: hidden;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 585, ../../app/common.sass */
 body {
   background-color: white;
   margin: 0;

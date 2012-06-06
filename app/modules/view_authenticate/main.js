@@ -31,6 +31,9 @@ define(function(require) {
           console.log("User is logged in with auth_token: " + data.auth_token);
           window.localStorage.setItem("cslAuthToken", data.auth_token);
           window.localStorage.setItem("cslUserID", data.user_id);
+          if(window.fixLoaded==false){
+            BackboneRailsAuthTokenAdapter.fixSync(Backbone, "auth_token", localStorage.getItem("cslAuthToken"));
+          }
         },
         error: function(xhr, type){
           $("#btnSignIn").removeAttr("disabled");
@@ -85,7 +88,7 @@ define(function(require) {
           this.model.authenticate();
           setTimeout(function(){
             if(window.loggedIn === true){
-              $('.'+self.className).animate({opacity:0}, {duration: 2000, complete: function(){$('.'+self.className).remove();}});
+              //$('.'+self.className).animate({opacity:0}, {duration: 2000, complete: function(){$('.'+self.className).remove();}});
               Backbone.history.navigate("/",true);
               console.log("SignInForm disappeared");
             } 

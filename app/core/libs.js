@@ -1,8 +1,9 @@
 define([
   'order!energize',
-  'order!zepto',
+  'order!jquery',
   'order!underscore',
-  'order!backbone'
+  'order!backbone',
+  'order!tokenFix'
   //'order!cordova'
 ], function() {
 
